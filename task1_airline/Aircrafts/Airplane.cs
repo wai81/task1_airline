@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace task1_airline.Aircrafts
 {
-    abstract class AirPlane
+    abstract class Airplane
     {
+        public string AirplaneModel { get; set; }
+        public int MaxCapacity { get; set; }           // Вместимость
+        public int MaxLoadCapacity { get; set; }       // Грузоподъемность
+        public int MaxRangeFlight { get; set; }        // Дальность полета
     }
 }
