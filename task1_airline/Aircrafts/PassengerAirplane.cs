@@ -16,6 +16,11 @@ namespace task1_airline.Aircrafts
             MaxPassengerCapacity = maxPassengerCapacity;
         }
 
+        public override void GetAirplane()
+        {
+            Console.WriteLine($"Passenger airplane: {AirplaneModel} | max range: {MaxRangeFlight} | max passenger capacity: {MaxPassengerCapacity} | fuel expend {FuelExpend}");
+        }
+
         public int GetPassengerCapacity()
         {
             return MaxPassengerCapacity;

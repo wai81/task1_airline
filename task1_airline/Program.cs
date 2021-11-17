@@ -21,8 +21,14 @@ namespace task1_airline
             airlineCompany.AddAircraft(airplane4);
             airlineCompany.AddAircraft(airplane5);
             airlineCompany.AddAircraft(airplane6);
+            
+            airlineCompany.GetAllAirplanes();
+            
+            airlineCompany.SortByFuelExpend();
 
-            Console.WriteLine(airlineCompany.GetAirplanes());
+            airlineCompany.SortByMaxRangeFlight();
+
+            //Console.WriteLine( airlineCompany.GetCountLoadCapiciti());
         }
     }
 }

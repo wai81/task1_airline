@@ -8,9 +8,9 @@ namespace task1_airline.Aircrafts
 {
     public abstract class Airplane
     {
-        private string AirplaneModel;
-        private int MaxRangeFlight;        // Дальность полета
-        private int FuelExpend;            // Расход топлива
+        public string AirplaneModel { get; private set; }
+        public int MaxRangeFlight { get; private set; }        // Дальность полета
+        public int FuelExpend { get; private set; }             // Расход топлива
 
         public Airplane(string airplaneModel, int maxRangeFlight, int fuelExpend)
         {
@@ -18,12 +18,9 @@ namespace task1_airline.Aircrafts
             MaxRangeFlight = maxRangeFlight;
             FuelExpend = fuelExpend;
         }
-
-        public string GetAirplaneModel()
-        {
-            return AirplaneModel;
-        }
-
+        
+        public abstract void GetAirplane();
+        
         public int GetRangeFlight()
         {
             return MaxRangeFlight;

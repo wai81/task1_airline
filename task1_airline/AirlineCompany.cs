@@ -9,36 +9,61 @@ namespace task1_airline
 {
     class AirlineCompany
     {
-        public List<Airplane> Aircrafts { get; private set; } = new List<Airplane>();
+        public List<Airplane> Airplanes { get; private set; } = new List<Airplane>();
 
         public AirlineCompany()
         {
-
         }
-
-        public AirlineCompany(List<Airplane> aircrafts)
+        
+        public AirlineCompany(IEnumerable<Airplane> airplanes)
         {
-            Aircrafts = aircrafts;
+            Airplanes = airplanes.ToList();
         }
 
+        
         public void AddAircraft(Airplane airplane)
         {
-            Aircrafts.Add(airplane);
+            Airplanes.Add(airplane);
         }
 
-        public List<Airplane> GetAirplanes()
+        public void GetAllAirplanes()
         {
-            return Aircrafts;
+            Console.WriteLine("-= All airplane company =-");
+            foreach (var item in Airplanes)
+            {
+                item.GetAirplane();
+            }
         }
 
         public AirlineCompany SortByMaxRangeFlight()
         {
-            return new AirlineCompany((List<Airplane>)Aircrafts.OrderBy(x=>x.GetRangeFlight()));
+            Console.WriteLine("-= Sort airplane by max range =-");
+            AirlineCompany airlineCompany = new AirlineCompany(Airplanes.OrderBy(x => x.GetRangeFlight()));
+            GetAirplanes(airlineCompany.Airplanes);
+            return airlineCompany;
         }
 
         public AirlineCompany SortByFuelExpend()
         {
-            return new AirlineCompany((List<Airplane>)Aircrafts.OrderBy(x=>x.GetFuelExpend()));
+            Console.WriteLine("-= Sort airplane by fuel =-");
+            AirlineCompany airlineCompany = new AirlineCompany(Airplanes.OrderBy(x => x.GetFuelExpend()));
+
+            GetAirplanes(airlineCompany.Airplanes);
+            return airlineCompany; 
         }
+
+        private void GetAirplanes(List<Airplane> airplanes)
+        {
+            foreach (var item in airplanes)
+            {
+                item.GetAirplane();
+            }
+        }
+
+        //public int GetCountLoadCapiciti()
+        //{
+        //    int count = .Sum(x => x.GetLoadCapacity());
+        //    return count;
+        //}
     }
 }

@@ -16,6 +16,11 @@ namespace task1_airline.Aircrafts
             MaxLoadCapacity = maxLoadCapacity;
         }
 
+        public override void GetAirplane()
+        {
+            Console.WriteLine($"Transport airplane: {AirplaneModel} | max range: {MaxRangeFlight} | max load capacity: {MaxLoadCapacity} | fuel expend {FuelExpend}");
+        }
+
         public int GetLoadCapacity()
         {
             return MaxLoadCapacity;
