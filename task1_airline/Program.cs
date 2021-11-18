@@ -23,12 +23,15 @@ namespace task1_airline
             airlineCompany.AddAircraft(airplane6);
             
             airlineCompany.GetAllAirplanes();
-            
+            Console.WriteLine("");
             airlineCompany.SortByFuelExpend();
-
+            Console.WriteLine("");
             airlineCompany.SortByMaxRangeFlight();
+            Console.WriteLine("");
+            
+            Console.WriteLine($"The capacity of all passenger aircraft of the airline: {airlineCompany.GetCountPassengerCapacity()}");
+            Console.WriteLine($"The capacity of all load transport aircraft of the airline: {airlineCompany.GetCountLoadCapacity()}");
 
-            //Console.WriteLine( airlineCompany.GetCountLoadCapiciti());
         }
     }
 }

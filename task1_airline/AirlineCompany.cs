@@ -19,7 +19,6 @@ namespace task1_airline
         {
             Airplanes = airplanes.ToList();
         }
-
         
         public void AddAircraft(Airplane airplane)
         {
@@ -33,6 +32,16 @@ namespace task1_airline
             {
                 item.GetAirplane();
             }
+        }
+
+        public List<PassengerAirplane> GetPassengerAirplanes()
+        {
+            return Airplanes.OfType<PassengerAirplane>().ToList();
+        }
+
+        public List<TransportAirplane> GetTransportAirplanes()
+        {
+            return Airplanes.OfType<TransportAirplane>().ToList();
         }
 
         public AirlineCompany SortByMaxRangeFlight()
@@ -60,10 +69,16 @@ namespace task1_airline
             }
         }
 
-        //public int GetCountLoadCapiciti()
-        //{
-        //    int count = .Sum(x => x.GetLoadCapacity());
-        //    return count;
-        //}
+        public int GetCountLoadCapacity()
+        {
+            int count = GetTransportAirplanes().Sum(x => x.GetLoadCapacity());
+            return count;
+        }
+
+        public int GetCountPassengerCapacity()
+        {
+            int count = GetPassengerAirplanes().Sum(x => x.GetPassengerCapacity());
+            return count;
+        }
     }
 }
