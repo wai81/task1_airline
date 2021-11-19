@@ -32,6 +32,13 @@ namespace task1_airline
             Console.WriteLine($"The capacity of all passenger aircraft of the airline: {airlineCompany.GetCountPassengerCapacity()}");
             Console.WriteLine($"The capacity of all load transport aircraft of the airline: {airlineCompany.GetCountLoadCapacity()}");
 
+            int fuelExpend = Convert.ToInt32(Console.ReadLine());
+
+            if (fuelExpend != 0)
+            {
+                airlineCompany.GetAirplanesByFuelExpend(fuelExpend);
+            }
+
         }
     }
 }

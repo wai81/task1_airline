@@ -56,7 +56,6 @@ namespace task1_airline
         {
             Console.WriteLine("-= Sort airplane by fuel =-");
             AirlineCompany airlineCompany = new AirlineCompany(Airplanes.OrderBy(x => x.GetFuelExpend()));
-
             GetAirplanes(airlineCompany.Airplanes);
             return airlineCompany; 
         }
@@ -79,6 +78,20 @@ namespace task1_airline
         {
             int count = GetPassengerAirplanes().Sum(x => x.GetPassengerCapacity());
             return count;
+        }
+
+        public AirlineCompany GetAirplanesByFuelExpend(int fuelExpend)
+        {
+            AirlineCompany airlineCompany = new AirlineCompany(Airplanes.Where(x => x.FuelExpend == fuelExpend));
+            if(airlineCompany.Airplanes.Count != 0)
+            {
+                GetAirplanes(airlineCompany.Airplanes);
+            }
+            else
+            {
+                Console.WriteLine("Sorry, but no planes were found with this speed :(");
+            }
+            return airlineCompany;
         }
     }
 }
